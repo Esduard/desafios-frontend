@@ -1,0 +1,11 @@
+body, html{
+    width: 100%;
+    margin: 0; padding: 0;
+}
+
+body{
+    background: #282A2C;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+}
