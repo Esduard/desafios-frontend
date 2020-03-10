@@ -1,5 +1,5 @@
 <!DOCType HTML>
-    <html>
+    <html lang= "pt-br">
         <!-- Projeto logo DVD para vaga de estagio na cyberlabs.ai 
         o repositorio pode ser encontrado em https://github.com/cyberlabsai/desafios-frontend
 
@@ -12,6 +12,7 @@
             <link rel="stylesheet" href="dvd.css" />          
         </head>
         <body>
+
 
             <?xml version="1.0" encoding="UTF-8"?>
             <svg id = "dvd_logo" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 210 107">
@@ -26,35 +27,5 @@
             
 
         </body>
-        <script>
-
-                var dvd = getElementById('dvd_logo');
-
-                function setup(){
-                    
-                    dvd.style.height = 200 px;
-                    
-                    y = 300;
-
-                    xspeed = 10;
-                    yspeed = 10;
-
-                }
-
-                function draw(){
-                    
-
-                    x = x + xspeed;
-                    y = y + yspeed;
-
-                    if(x + 80 >= width || x <= 0){
-                        xspeed = -xspeed;
-                    }
-
-                    if(y + 60 >= height || y <= 0){
-                        yspeed = -yspeed;
-                    }
-                }
-
-        </script>
+        <script src= "dvd.js">
     </html>

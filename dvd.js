@@ -1,23 +1,43 @@
-let x;
-let y;
+let x = 0; //posicao da logo no eixo x
+let y = 0;  //posicao da logo no eixo y
 
-let xspeed;
-let yspeed;
+let xspeed = 10; //velocidade horizontal
+let yspeed = 10; //velocidade vertical
 
-function setup(){
-    createCanvas(800,600);
-    x = 400;
-    y = 300;
+let dvd = document.getElementById('dvd_logo'); // referencia ao SVG todo
+let background = document.getElementById('body'); // referencia ao fundo
 
-    xspeed = 10;
-    yspeed = 10;
+const colors = "cores.json"
 
-}
+//funcao request color
 
-function draw(){
-    background(0);
-    rect(x,y,80,60);
+const width = dvd.clientWidth;
+const height = dvd.clientHeight;
 
-    x = x + xspeed;
-    y = y + yspeed;
+function move{
+
+    const background_width = background.clientWidth;
+    const background_height = background.clientHeight;
+
+    x += xspeed;
+    y += yspeed;
+
+    console.log(x)
+    console.log(y)
+
+    //COMO ASSOCIAR A NOVA POSICAO AO OBJETO REAL EM HTML?
+
+    if(x + width == background_width && x == 0)
+    {
+        //request color
+        xspeed = -xspeed;
+    }
+
+    if(y + height == background_height && y == 0)
+    {
+        //request color
+        yspeed = -yspeed;
+    }
+
+    move();
 }

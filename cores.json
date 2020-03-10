@@ -1,1 +1,6 @@
-cores.json
+{
+    "colors": ["#390039","#004bff","#f9a17d","#f2a5b9","#a582fa","#a582fa","#5ac18e",
+                "#00ffff","#b7e4cf","#c0c0c0","#c3a5d8","#8c9ed8","#ff00ff","#8232ff",
+                "#b85c8a","#8232ff","#a582fa","#ffc0cb","#daff00","#eea6e6","#006767"
+    ]
+  }
