@@ -22,10 +22,9 @@ function move{
     x += xspeed;
     y += yspeed;
 
-    console.log(x)
-    console.log(y)
-
-    //COMO ASSOCIAR A NOVA POSICAO AO OBJETO REAL EM HTML?
+    //associando a nova posicao ao objeto real em html
+    dvd.style.top = pos + 'px';
+    dvd.style.left = pos + 'px';
 
     if(x + width == background_width && x == 0)
     {
@@ -41,3 +40,5 @@ function move{
 
     move();
 }
+
+move();
