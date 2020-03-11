@@ -1,9 +1,15 @@
-const colors = "cores.json"
+const colors = "../api/cores.json"
 
 //funcao request color
 function requestColor(){
 
-    return fetch(colors);
+    fetch(colors)
+    .then(function(resp) {
+        return resp.json();
+    })
+    .then(function(data){
+        console.log(data);
+    });
     
 
 }
