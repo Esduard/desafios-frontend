@@ -1,19 +1,16 @@
 let dvd = document.getElementById('dvd_logo'); // referencia ao SVG todo
-let background = document.getElementById('body'); // referencia ao fundo
+let background = document.getElementById('container'); // referencia ao fundo
 
-let x = dvd.style.top; //posicao inical da logo no eixo x
-let y = dvd.style.left;  //posicao inicial da logo no eixo y
+let x = 0; //posicao inical da logo no eixo x
+let y = 0;  //posicao inicial da logo no eixo y
 
-let xspeed = 10; //velocidade horizontal
-let yspeed = 10; //velocidade vertical
+let xspeed = 5; //velocidade horizontal
+let yspeed = 5; //velocidade vertical
 
 
 const colors = "cores.json"
 
 //funcao request color
-
-console.log('ola');
-
 function requestColor(){
 
     return fetch(colors);
@@ -21,34 +18,42 @@ function requestColor(){
 
 }
 
+//captura das medidas da logo
 const width = dvd.clientWidth;
 const height = dvd.clientHeight;
 
+
+
+
 function move(){
 
-    const background_width = background.clientWidth;
-    const background_height = background.clientHeight;
+    //captura das medidas do fundo. captura deve acontecer em tempo real para ajustar
+    let background_width = background.clientWidth;
+    let background_height = background.clientHeight;
 
     x += xspeed;
     y += yspeed;
 
-    //associando a nova posicao ao objeto real em html
-    dvd.style.top = pos + 'px';
-    dvd.style.left = pos + 'px';
 
-    if(x + width == background_width && x == 0)
+    //colisao horizontal
+    if(x + width >= background_width || x <= 0)
     {
         //request color
         xspeed = -xspeed;
     }
 
-    if(y + height == background_height && y == 0)
+    //colisao vertical
+    if(y + height >= background_height || y <= 0)
     {
         //request color
         yspeed = -yspeed;
     }
 
-    window.requestAnimationFrame(move);
+     //associando a nova posicao ao objeto real em html
+     dvd.style.left = x + 'px';
+     dvd.style.top = y + 'px';
 }
 
-window.requestAnimationFrame(move);
+//animacao com taxa de 60fps
+setInterval(move,1000/60);
+  
