@@ -1,16 +1,10 @@
 const colors = "../api/cores.json"
 
 //funcao request color
-function requestColor(){
+async function requestColor(){
 
-    fetch(colors)
-    .then(function(resp) {
-        return resp.json();
-    })
-    .then(function(data){
-        console.log(data);
-    });
-    
+    const resposta = await fetch(colors);
+    const color = await resposta;
 
 }
 
@@ -43,7 +37,6 @@ dvd.style.top = y + 'px';
 let xspeed = 3; //velocidade horizontal inicial
 let yspeed = 3; //velocidade vertical inicial
 
-
 function move(){
 
     //captura das medidas do fundo. captura deve acontecer em tempo real para ajustar
@@ -75,4 +68,6 @@ function move(){
 
 //animacao com taxa de 60fps
 setInterval(move,1000/60);
+
+requestColor();
   
